@@ -5,7 +5,7 @@ const cors = require("cors");
 const passport = require("passport");
 const { DATABASE_URL, PORT, CLIENT_ORIGIN } = require("./config");
 const { router: quoteRouter } = require("./routes/quoteRouter");
-
+const authRoutes = require("./auth/auth-routes");
 const app = express();
 
 app.use(function(req, res, next) {
@@ -18,6 +18,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+// set up routes
+app.use("/auth", authRoutes);
 app.use("/api", quoteRouter);
 
 // this function connects to our database, then starts the server
