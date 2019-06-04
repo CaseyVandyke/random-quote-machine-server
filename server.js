@@ -5,7 +5,7 @@ const cors = require("cors");
 const passport = require("passport");
 const { DATABASE_URL, PORT, CLIENT_ORIGIN } = require("./config");
 const { router: quoteRouter } = require("./routes/quoteRouter");
-const authRoutes = require("./auth/auth-routes");
+const { router: authRoutes } = require("./auth/auth-routes");
 const app = express();
 
 app.use(function(req, res, next) {
